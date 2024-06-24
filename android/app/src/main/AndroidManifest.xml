@@ -15,7 +15,7 @@
     </queries>
     <!--  whatsapp  -->
     <application
-        android:label="diplom"
+        android:label="Өсүмдүк"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

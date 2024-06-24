@@ -48,6 +48,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                         builder: (context) => HomeDetailPage(
                           index: index,
                           plantModel: plant,
+                          isHome: false,
                         ),
                       ),
                     );

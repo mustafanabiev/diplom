@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                                 builder: (context) => HomeDetailPage(
                                   index: index,
                                   plantModel: state.plantModel[index],
+                                  isHome: true,
                                 ),
                               ),
                             );
@@ -119,6 +120,7 @@ class _HomePageState extends State<HomePage> {
                                 builder: (context) => HomeDetailPage(
                                   index: index,
                                   plantModel: state.plantModel2[index],
+                                  isHome: true,
                                 ),
                               ),
                             );

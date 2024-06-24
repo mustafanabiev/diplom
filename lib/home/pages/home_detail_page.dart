@@ -8,10 +8,12 @@ class HomeDetailPage extends StatefulWidget {
     super.key,
     required this.plantModel,
     required this.index,
+    required this.isHome,
   });
 
   final PlantModel plantModel;
   final int index;
+  final bool isHome;
 
   @override
   State<HomeDetailPage> createState() => _HomeDetailPageState();
@@ -33,15 +35,16 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
                   context
                       .read<HomeCubit>()
                       .toggleFavorite(context, widget.plantModel);
+                  Navigator.pop(context);
                 },
-                icon: state.plantModel[widget.index].isFavorites
+                icon: widget.isHome
                     ? const Icon(
-                        Icons.star,
+                        Icons.add,
                         color: Colors.amber,
                       )
                     : const Icon(
-                        Icons.star_outline,
-                        color: Colors.amber,
+                        Icons.remove,
+                        color: Colors.red,
                       ),
               );
             },

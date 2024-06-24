@@ -1,7 +1,7 @@
 import 'package:diplom/create/pages/create_page.dart';
-import 'package:diplom/favorites/pages/favorites_page.dart';
 import 'package:diplom/home/pages/home_page.dart';
 import 'package:diplom/main/cubit/main_cubit.dart';
+import 'package:diplom/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +17,7 @@ class _MainPageState extends State<MainPage> {
   List<Widget> pages = [
     const HomePage(),
     const CreatePage(),
-    const FavoritesPage(),
+    const ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {

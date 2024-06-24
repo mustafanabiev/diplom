@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:diplom/models/growing_plants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CreateDetailPage extends StatefulWidget {
   const CreateDetailPage({super.key, required this.growingPlants});
@@ -15,6 +16,27 @@ class _CreateDetailPageState extends State<CreateDetailPage> {
   final jobCtl = TextEditingController();
   bool? isChecked = false;
   List<TizmeModel> tizmeList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadTizmeList();
+  }
+
+  Future<void> _saveTizmeList() async {
+    final prefs = await SharedPreferences.getInstance();
+    final tizmeListJson = tizmeList.map((item) => item.toJson()).toList();
+    prefs.setStringList('tizmeList', tizmeListJson);
+  }
+
+  Future<void> _loadTizmeList() async {
+    final prefs = await SharedPreferences.getInstance();
+    final tizmeListJson = prefs.getStringList('tizmeList') ?? [];
+    setState(() {
+      tizmeList =
+          tizmeListJson.map((item) => TizmeModel.fromJson(item)).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -132,6 +154,7 @@ class _CreateDetailPageState extends State<CreateDetailPage> {
                           );
                           jobCtl.clear();
                         });
+                        _saveTizmeList();
                       }
                     },
                     child: const Icon(Icons.add),
@@ -156,6 +179,7 @@ class _CreateDetailPageState extends State<CreateDetailPage> {
                                 setState(() {
                                   tizmeList[index].isActive = value ?? false;
                                 });
+                                _saveTizmeList();
                               },
                             ),
                           );

@@ -148,7 +148,7 @@ List<PlantModel> plants = [
   ),
   const PlantModel(
     id: 8,
-    image: 'ORUK.png',
+    image: '21.jpeg',
     name: 'Өрүк',
     description:
         '''Отургузуу: апрель айынын ортосуна чейин, түштүктө сентябрдын аягында же октябрдын башында отургузса болот.
